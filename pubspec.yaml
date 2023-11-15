@@ -35,6 +35,11 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_svg: ^2.0.9
+  http: ^1.1.0
+  fluttertoast: ^8.2.4
+  pin_code_fields: ^8.0.1
+  shared_preferences: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -54,9 +59,17 @@ dev_dependencies:
 flutter:
 
   # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
+  # included with your application, so that you can use the icons in+6
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/images/
+
+
+fonts:
+  - family: poppins
+    fonts:
+      -assats: fonts/Poppins-Regular.zip
 
   # To add assets to your application, add an assets section, like this:
   # assets:
