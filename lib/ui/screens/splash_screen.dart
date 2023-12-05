@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../controller/auth_controller.dart';
 import '../widgets/backgrount_image.dart';
 import 'login_screen.dart';

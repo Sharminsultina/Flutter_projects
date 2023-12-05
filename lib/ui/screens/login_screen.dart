@@ -1,13 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:task_manager_app/ui/screens/signup_screen.dart';
+import 'package:task_manager_app/ui/screens/sign_up_screen.dart';
 
 import '../../data/models/user_model.dart';
 import '../../data/network_caller/network_caller.dart';
 import '../../data/network_caller/network_response.dart';
 import '../../data/utility/urls.dart';
 import '../../style/style.dart';
-import '../controller/auth_controller.dart';
 import '../controller/input_validations.dart';
 import '../widgets/backgrount_image.dart';
 import '../widgets/snack_bar.dart';
@@ -151,6 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
         "email": _emailInputTEController.text.trim(),
         "password": _passwordInputTEController.text,
       },
+      isLogin: true,
     );
 
     loginInProgress = false;

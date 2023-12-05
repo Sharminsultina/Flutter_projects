@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +22,15 @@ class TopProfileSummeryCard extends StatefulWidget {
 }
 
 class _TopProfileSummeryCardState extends State<TopProfileSummeryCard> {
+  String imageFormat = Auth.user?.photo ?? '';
+
   @override
   Widget build(BuildContext context) {
+    if (imageFormat.startsWith('data:image')) {
+      imageFormat =
+          imageFormat.replaceFirst(RegExp(r'data:image/[^;]+;base64,'), '');
+    }
+    Uint8List imageInBytes = const Base64Decoder().convert(imageFormat);
     return ListTile(
       onTap: () {
         if (widget.onTapStatus == true) {
@@ -31,9 +41,19 @@ class _TopProfileSummeryCardState extends State<TopProfileSummeryCard> {
           );
         }
       },
-      leading: CircleAvatar(
-        backgroundImage: NetworkImage(Auth.user?.photo ?? ''),
-        backgroundColor: Colors.lightGreen,
+      leading: Visibility(
+        visible: imageInBytes.isNotEmpty,
+        replacement: const CircleAvatar(
+          backgroundColor: Colors.lightGreen,
+          child: Icon(Icons.account_circle_outlined),
+        ),
+        child: CircleAvatar(
+          backgroundImage: Image.memory(
+            imageInBytes,
+            fit: BoxFit.cover,
+          ).image,
+          backgroundColor: Colors.lightGreen,
+        ),
       ),
       title: Text(
         userFullName,

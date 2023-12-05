@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SummaryCard extends StatelessWidget {
-  final int summaryCount;
+  final String summaryCount;
   final String summaryTitle;
 
   const SummaryCard({
